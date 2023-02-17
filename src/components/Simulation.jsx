@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import ant from "../ant.png";
 
-const BOARD_SIZE = 2;
+const BOARD_SIZE = 3;
 const SQUARE_WIDTH = 50;
 const SQUARE_HEIGHT = 50;
-const SPEED = 0.000001;
+const SPEED = 1000;
 const START_ROW = 1; //Math.floor(Math.random() * BOARD_SIZE)
 const START_COL = 1; //Math.floor(Math.random() * BOARD_SIZE)
-const STARTING_DIRECTION_INDEX = 2//Math.floor(Math.random() * 4);
+const STARTING_DIRECTION_INDEX = 2; //Math.floor(Math.random() * 4);
 const DIRECTION_DICT = { 0: 0, 1: 90, 2: 180, 3: 270 };
 
 const initBoard = () => {
@@ -19,17 +19,19 @@ const initBoard = () => {
 
 const expandBoard = (prevBoard) => {
   const prevBoardDimension = prevBoard[0].length;
-  let expandedBoard = new Array(prevBoardDimension + 2).fill(null).map(() => new Array(prevBoardDimension + 2).fill('w'));
+  let expandedBoard = new Array(prevBoardDimension + 2)
+    .fill(null)
+    .map(() => new Array(prevBoardDimension + 2).fill("w"));
   // Copy board
-  for (let i = 1; i < prevBoardDimension+1; i++) {
-    for (let j = 1; j < prevBoardDimension+1; j++) {
+  for (let i = 1; i < prevBoardDimension + 1; i++) {
+    for (let j = 1; j < prevBoardDimension + 1; j++) {
       expandedBoard[i][j] = prevBoard[i - 1][j - 1];
     }
   }
   return expandedBoard;
 };
 
-const determineMovement = (
+export const determineMovement = (
   antRowIndex,
   antColIndex,
   directionDegree,
@@ -121,13 +123,11 @@ const Simulation = () => {
   // const [step, setStep] = useState(0)
 
   useEffect(() => {
-    
     // console.log(
     //   `Position - row: ${antRowIndex}, col: ${antColIndex}, degree: ${directionDegree}, tileColour: ${tileColour}`
     // );
 
     setTimeout(() => {
-      
       setBoard((prevBoard) => {
         let newBoard = [...prevBoard];
         const nextMovement = determineMovement(
@@ -163,7 +163,7 @@ const Simulation = () => {
       // setStep(step+1)
       // console.log(step)
     }, SPEED);
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [board]);
 
   return (
