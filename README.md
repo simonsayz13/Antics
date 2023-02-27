@@ -20,7 +20,7 @@ npm start
 
 # Usage
 
-By default, the grid is set as 2 by 2. As the Ant moves out the grid, the grid will expand by 1 in both directions. However, this starting grid size can be changed via changing the constant variable in the [Simulation.jsx](src/components/Simulation.jsx) component
+By default, the grid is set as 3 by 3. As the Ant moves out the grid, the grid will expand by 1 in both directions. However, this starting grid size can be changed via changing the constant variable in the [Simulation.jsx](src/components/Simulation.jsx) component
 
 ```Javascript
 const BOARD_SIZE = 3;
