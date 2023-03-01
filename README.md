@@ -4,6 +4,8 @@ The task is to create a simulation of Langton's Ant. Langton's Ant is a cellular
 # Solution
 The Langton's Ant simulation is re-created as a single-page application using JavaScript and [React](https://reactjs.org/) Framework.
 
+Deployment: https://antics.vercel.app/
+
 # Installation
 
 1) Install all dependencies using the following command while on the project's root directory.
